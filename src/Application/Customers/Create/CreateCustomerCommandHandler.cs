@@ -34,16 +34,16 @@ namespace Application.Customers.Create
             errors = new StringBuilder();
 
             if (string.IsNullOrEmpty(createCustomerCommand.FirstName))
-                errors.Append("First name should have a value.\n");
+                errors.Append("First name must have a value.\n");
 
             if (string.IsNullOrEmpty(createCustomerCommand.LastName))
-                errors.Append("Last name should have a value.\n");
+                errors.Append("Last name must have a value.\n");
 
             if (string.IsNullOrEmpty(createCustomerCommand.Identification))
-                errors.Append("Identification should have a value.\n");
+                errors.Append("Identification must have a value.\n");
 
             if (string.IsNullOrEmpty(createCustomerCommand.Email))
-                errors.Append("Email should have a value.\n");
+                errors.Append("Email must have a value.\n");
 
             if (!Regex.IsMatch(createCustomerCommand.Email, @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"))
                 errors.Append("Email format is invalid.\n");
@@ -51,9 +51,9 @@ namespace Application.Customers.Create
             return errors.Length == 0;
         }
 
-        private CreateCustomerCommandResponse MapToResponse(Customer result)
+        private CreateCustomerCommandResponse MapToResponse(Customer customer)
         {
-            return new CreateCustomerCommandResponse(result.Identification, result.FirstName, result.LastName, result.Email, result.BirthDate);
+            return new CreateCustomerCommandResponse(customer.Identification, customer.FirstName, customer.LastName, customer.Email, customer.BirthDate);
         }
     }
 }
