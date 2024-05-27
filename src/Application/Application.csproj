@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MediatR" Version="12.2.0" />
+    <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="Vehicles\GetByLicensePlate\" />
+    <None Remove="Vehicles\Delete\" />
+    <None Remove="Customers\" />
+    <None Remove="Customers\Create\" />
+    <None Remove="Customers\Delete\" />
+    <None Remove="Customers\GetById\" />
+    <None Remove="Customers\GetAll\" />
+    <None Remove="Commons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Customers\" />
+    <Folder Include="Customers\Create\" />
+    <Folder Include="Customers\Delete\" />
+    <Folder Include="Customers\GetById\" />
+    <Folder Include="Customers\GetAll\" />
+    <Folder Include="Commons\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+</Project>
