@@ -34,19 +34,19 @@ namespace Application.Customers.Create
             errors = new StringBuilder();
 
             if (string.IsNullOrEmpty(createCustomerCommand.FirstName))
-                errors.Append("First name must have a value.\n");
+                errors.Append("First Name must not be empty.\n");
 
             if (string.IsNullOrEmpty(createCustomerCommand.LastName))
-                errors.Append("Last name must have a value.\n");
+                errors.Append("Last Name must not be empty.\n");
 
             if (string.IsNullOrEmpty(createCustomerCommand.Identification))
-                errors.Append("Identification must have a value.\n");
+                errors.Append("Identification must not be empty.\n");
 
             if (string.IsNullOrEmpty(createCustomerCommand.Email))
-                errors.Append("Email must have a value.\n");
+                errors.Append("Email must not be empty.\n");
 
             if (!Regex.IsMatch(createCustomerCommand.Email, @"^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$"))
-                errors.Append("Email format is invalid.\n");
+                errors.Append("Email is not in the correct format..\n");
 
             return errors.Length == 0;
         }
